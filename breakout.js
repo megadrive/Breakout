@@ -61,3 +61,13 @@ function Render() {
 	
 	level.Draw(ctx);
 }
+
+function CheckCollide(obj, obj2) {
+	if( obj.posx                  > obj2.posx + obj2.width ) return false;
+	if( obj.posx + obj.width      < obj2.posx              ) return false;
+
+	if( obj.posy                  > obj2.posy + obj2.height ) return false;
+	if( obj.posy + obj.height     < obj2.posy               ) return false;
+	
+	return true;
+}

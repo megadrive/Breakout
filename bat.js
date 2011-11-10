@@ -12,6 +12,8 @@ var Bat = {
 	
 	image: null,
 	
+	holdingBall: true,
+	
 	Init: function() {
 		this.posy = canvas.height - 30;
 	},

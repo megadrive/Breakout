@@ -1,12 +1,15 @@
 
-var level1 =
-[
-	[0,0], [0,0], [0,0], [1,1], [1,1],
-	[0,1], [1,1], [1,1], [1,0], [0,1],
-	[0,1], [1,1], [1,1], [1,1], [1,1],
-	[0,1], [1,1], [1,1], [1,1], [1,0],
-	[0,0], [0,0], [0,0], [1,1], [1,1]
-];
+var level1 = Array();
+level1[0] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+level1[1] = [1, 0, 1, 1, 1, 1, 0, 1, 0, 1];
+level1[2] = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1];
+level1[3] = [1, 1, 1, 0, 0, 1, 1, 1, 0, 1];
+level1[4] = [1, 1, 1, 0, 0, 1, 1, 1, 0, 1];
+level1[5] = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1];
+level1[6] = [1, 1, 1, 1, 1, 1, 0, 1, 0, 1];
+level1[7] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+level1[8] = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
+level1[9] = [1, 0, 1, 0, 1, 0, 1, 1, 0, 1];
 
 var levels = [level1];
 
@@ -27,14 +30,16 @@ var Block = function(posx, posy, score) {
 
 // level, comprised of blocks
 var Level = function(blockArray) {
+	Console("Loading level");
+
 	this.blocks = new Array();
 	this.LoadLevel = function() {
 	
-		for(var y = 0; y < 5; ++y) {
+		for(var y = 0; y < 10; y++) {
 		
-			for(var x = 0; x < 5; ++x) {
+			for(var x = 0; x < 10; x++) {
 			
-				if( level1[x][y] != 0 ) {
+				if( level1[x][y] != undefined && level1[x][y] != 0 ) {
 					this.blocks[this.numBlocks] = new Block(x, y, 10);
 					this.blocks[this.numBlocks].posx *= this.blocks[this.numBlocks].width + 3;
 					this.blocks[this.numBlocks].posy *= this.blocks[this.numBlocks].height + 3;
@@ -57,33 +62,19 @@ var Level = function(blockArray) {
 	
 	this.Collisions = function() {
 		for(var block = 0; block < this.numBlocks; ++block) {
-			//continue; // test
 			
 			var theBlock = this.blocks[block];
 			
 			if( theBlock.alive == false ) continue;
 		
-			if( theBlock.posx - theBlock.width / 2 > Ball.posx + Ball.width / 2 ) continue;
-			if( theBlock.posx + theBlock.width / 2 < Ball.posx - Ball.width / 2) continue;
-		
-			if( theBlock.posy - theBlock.height / 2 > Ball.posy + Ball.height / 2 ) continue;
-			if( theBlock.posy + theBlock.height / 2 < Ball.posy - Ball.height / 2) continue;
-			
-			// // work out where it was hitting from and modify the ball trajectory accordingly			
-			var diffx = Ball.posx - this.blocks[block].posx;
-			var diffy = Ball.posy - this.blocks[block].posy;
-			var length = (diffx * diffx) + (diffy * diffy);
-			var diffxnorm = diffx / length;
-			var diffynorm = diffy / length;
-			
-			if( diffxnorm > 0.2 )
-				Ball.speedx = Ball.speedx * -diffxnorm;
-			if( diffxnorm > 0.2 )
-				Ball.speedy = Ball.speedy * -diffynorm;
+			if( !CheckCollide(theBlock, Ball) )
+				continue;
 			
 			// if we make it this far the ball should be colliding with a block
 			Bat.score += this.blocks[block].score;			
 			this.blocks[block].alive = false;
+			
+			Ball.speedy *= -1;
 		}
 	}
 }

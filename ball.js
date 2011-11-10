@@ -17,8 +17,8 @@ var Ball = {
 		this.posx = canvas.width / 2;
 		this.posy = canvas.height / 2;
 		
-		this.speedx = Math.floor(Math.random() * 154);
-		this.speedy = Math.floor(Math.random() * 154);
+		this.speedx = Math.floor(Math.random() * speedbase);
+		this.speedy = Math.floor(Math.random() * speedbase);
 		
 		if( Math.floor(Math.random() * 2) == 0 ) this.speedx *= -1;
 		if( Math.floor(Math.random() * 2) == 0 ) this.speedy *= -1;
@@ -31,6 +31,14 @@ var Ball = {
 		if( this.posx < this.width / 2 ) this.speedx *= -1;
 		if( this.posx + this.width / 2 > canvas.width ) this.speedx *= -1;
 		if( this.posy < 0 ) this.speedy *= -1;
+		
+		// debug
+		if( this.posy + this.height / 2 > canvas.height ) this.speedy *= -1;
+		
+		// if it hits the bat, fly backwards
+		if( CheckCollide(Ball, Bat) ) {
+			Ball.speedy *= -1;
+		}
 	},
 	
 	Draw: function() {
