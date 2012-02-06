@@ -1,0 +1,51 @@
+
+ROOMRUNNER PLAN
+---------------
+
+Table of Contents
+-----------------
+	1.0     Overview
+          1.1     Technologies
+          1.2     Structure
+        2.0     Assets
+          2.1     Loading
+          2.2     Database
+	3.0	Player
+	4.0     Rooms
+        5.0     Obstacles
+        6.0     Enemies
+
+1.0     Overview
+----------------
+RoomRunner is a modular platformer where each level is designed separately and then placed together to form a level.
+TODO: Decide whether it will be randomly generated levels or self-written. Or both.
+
+1.1     Technologies
+--------------------
+Language: C/C++
+Graphics: SDL 1.2
+Database: SQLite
+
+1.2     Structure
+-----------------
+Source:
+        ${GAME_ROOT}/           Solution/Project directory.
+        ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious files.
+        ${GAME_ROOT}/src        Source files (*.h and *.cpp).
+
+Deploy:
+        ${GAME_ROOT}/           Executable.
+        ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious required files.
+
+2.0     Assets
+--------------
+
+2.1     Loading
+---------------
+SDL will handle all graphics.
+
+3.0     Player
+--------------
+The player can move left and right and duck. His jump height formula is:
+        height + (height * 0.75)
+
