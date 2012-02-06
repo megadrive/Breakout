@@ -1,25 +1,24 @@
+ROOMRUNNER
+==========
 
-ROOMRUNNER by Andrew Simeon
----------- -- -------------
-
-http://www.andrewsimeon.com/
-andrew@andrewsimeon.com
-http://github.com/megadrive
+* http://www.andrewsimeon.com/
+* andrew@andrewsimeon.com
+* http://github.com/megadrive
 
 Table of Contents
 -----------------
-    1.0     Overview
-          1.1     Technologies
-          1.2     Structure
-          1.3     Program constants
-        2.0     Assets
-          2.1     Loading
-          2.2     Database
-    3.0     Player
-    4.0     Rooms/Houses
-		4.1		Population
-        4.2     Obstacles
-        4.3     Enemies
+*   1.0 Overview
+*-     1.1 Technologies
+*-     1.2 Structure
+*-     1.3 Program constants
+*   2.0 Assets
+*-     2.1 Loading
+*-     2.2 Database
+*   3.0 Player
+*   4.0 Rooms/Houses
+*-     4.1 Population
+*-     4.2 Obstacles
+*-     4.3 Enemies
 
 1.0     Overview
 ----------------
