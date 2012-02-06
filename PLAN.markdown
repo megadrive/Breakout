@@ -1,24 +1,24 @@
-ROOMRUNNER
-==========
+# ROOMRUNNER
 
-* http://www.andrewsimeon.com/
-* andrew@andrewsimeon.com
-* http://github.com/megadrive
+- Web: http://www.andrewsimeon.com/
+- Email: andrew@andrewsimeon.com
+- GitHub: http://github.com/megadrive
 
-Table of Contents
------------------
-*   1.0 Overview
-*-     1.1 Technologies
-*-     1.2 Structure
-*-     1.3 Program constants
-*   2.0 Assets
-*-     2.1 Loading
-*-     2.2 Database
-*   3.0 Player
-*   4.0 Rooms/Houses
-*-     4.1 Population
-*-     4.2 Obstacles
-*-     4.3 Enemies
+
+## Table of Contents
+
+    1.0 Overview
+        1.1 Technologies
+        1.2 Structure
+        1.3 Program constants
+    2.0 Assets
+        2.1 Loading
+        2.2 Database
+    3.0 Player
+    4.0 Rooms/Houses
+        4.1 Population
+        4.2 Obstacles
+        4.3 Enemies
 
 1.0     Overview
 ----------------
@@ -29,24 +29,26 @@ TODO: Decide whether it will be randomly generated levels or self-written. Or bo
 1.1     Technologies
 --------------------
 Language: C/C++
-Graphics: SDL 1.2
-Database: SQLite
+Graphics: SDL 1.2 http://libsdl.org/
+Database: SQLite http://www.sqlite.org/
 
 1.2     Structure
 -----------------
 Source:
-        ${GAME_ROOT}/           Solution/Project directory.
-        ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious files.
-        ${GAME_ROOT}/src        Source files (*.h and *.cpp).
+
+    ${GAME_ROOT}/           Solution/Project directory.
+    ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious files.
+    ${GAME_ROOT}/src        Source files (*.h and *.cpp).
 
 Deploy:
-        ${GAME_ROOT}/           Executable.
-        ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious required files.
+
+    ${GAME_ROOT}/           Executable.
+    ${GAME_ROOT}/assets     Graphics/Sounds/Miscellanious required files.
 
 1.3     Program constants
 -------------------------
-WINDOW_WIDTH    The window's width
-WINDOW_HEIGHT   The window's height
+    WINDOW_WIDTH    The window's width
+    WINDOW_HEIGHT   The window's height
 
 2.0     Assets
 --------------
@@ -65,15 +67,17 @@ a Cell class is used. These are 16 pixels by 16 pixels and can contain one Objec
 from the other table.
 
 Tables required:
-	- Objects(ObjectId, Name, Width, Height, ImagePath = NULL);
-	- Rooms(RoomId, Name, WidthModifier = 1, TilesetImagePath);
-	- Cells(CellId, RoomId, ObjectId, GridX, GridY);	-- RoomId must refer to a VALID Room. 
-														-- ObjectId must refer to a VALID Object. 
+- Objects(ObjectId, Name, Width, Height, ImagePath = NULL);
+- Rooms(RoomId, Name, WidthModifier = 1, TilesetImagePath);
+- Cells(CellId, RoomId, ObjectId, GridX, GridY);
+
+Cells.RoomId must refer to a VALID Room. 
+Cells.ObjectId must refer to a VALID Object. 
 
 3.0     Player
 --------------
 The player can move left and right, duck and jump. His jump height formula is:
-        height + (height * 0.75)
+    height + (height * 0.75)
 
 4.0     Rooms/Houses
 -------------
@@ -87,8 +91,8 @@ A connection should be made and then read into the Room's vector, loading Textur
 
 4.2     Obstacles
 -----------------
-Name		Type	Function
+    Name		Type	Function
 
 4.3     Enemies
 ---------------
-Name		Type	Description
+    Name		Type	Description
