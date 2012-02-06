@@ -1,0 +1,18 @@
+# Visual Studio ignores
+Debug
+Debug/*
+Release
+Release/*
+ipch
+*.ipch
+*.o
+*.opensdf
+*.vcxproj.*
+*.suo
+*.sdf
+*.exe
+*.obj
+*.idb
+*.tlog
+*.log #these should be generated via own configs anyway
+*.pdb
