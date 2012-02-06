@@ -1,6 +1,10 @@
 
-ROOMRUNNER
-----------
+ROOMRUNNER by Andrew Simeon
+---------- -- -------------
+
+http://www.andrewsimeon.com/
+andrew@andrewsimeon.com
+http://github.com/megadrive
 
 Table of Contents
 -----------------
@@ -55,6 +59,18 @@ run a check for unused Textures and unload them to conserve memory.
 SDL will handle all graphic loading. They load into a TextureLibrary singleton. Levels are stored 
 in an SQLite database that is read in the loading/init phase of a scene.
 
+2.2		Database
+----------------
+The database is only used for Room loading and Object placing. To keep everything in a nice line, 
+a Cell class is used. These are 16 pixels by 16 pixels and can contain one Object, referenced 
+from the other table.
+
+Tables required:
+	- Objects(ObjectId, Name, Width, Height, ImagePath = NULL);
+	- Rooms(RoomId, Name, WidthModifier = 1, TilesetImagePath);
+	- Cells(CellId, RoomId, ObjectId, GridX, GridY);	-- RoomId must refer to a VALID Room. 
+														-- ObjectId must refer to a VALID Object. 
+
 3.0     Player
 --------------
 The player can move left and right, duck and jump. His jump height formula is:
@@ -67,8 +83,8 @@ Houses contain rooms, these are the overarching world.
 
 4.1		Population
 ------------------
-Rooms are populated via SQLite. A connection should be made and then read into the Room's vector, 
-loading Textures as required.
+Rooms are populated via SQLite, which are created via a custom Tiled Map Editor plugin by me (TODO). 
+A connection should be made and then read into the Room's vector, loading Textures as required.
 
 4.2     Obstacles
 -----------------
@@ -76,3 +92,4 @@ Name		Type	Function
 
 4.3     Enemies
 ---------------
+Name		Type	Description
