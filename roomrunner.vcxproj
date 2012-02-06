@@ -60,7 +60,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MenuScene.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Room.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\TextureLibrary.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\MenuScene.h" />
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Room.h" />
+    <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\TextureLibrary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
