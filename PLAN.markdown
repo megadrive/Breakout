@@ -67,6 +67,7 @@ a Cell class is used. These are 16 pixels by 16 pixels and can contain one Objec
 from the other table.
 
 Tables required:
+
 - Objects(ObjectId, Name, Width, Height, ImagePath = NULL);
 - Rooms(RoomId, Name, WidthModifier = 1, TilesetImagePath);
 - Cells(CellId, RoomId, ObjectId, GridX, GridY);
