@@ -8,10 +8,11 @@
  */
 
 #include <vector>
+#include "Util.h"
 
 // forward declaration
 class Object;
-typedef std::vector<Object*>;
+typedef std::vector<Object*> ObjectVector;
 
 class Room
 {
@@ -19,7 +20,10 @@ public:
 	Room();
 	~Room();
 
-private:
+	RR_RESULT AddObject( Object* a_pObject );
+	
+protected:
+	ObjectVector m_objects;
 };
 
 #endif
