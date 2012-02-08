@@ -7,9 +7,10 @@
  * @brief	
  */
 
+#include "Scene.h"
 #include "Util.h"
 
-class MenuScene
+class MenuScene : public Scene
 {
 public:
 	MenuScene();
@@ -18,8 +19,9 @@ public:
 	virtual RR_RESULT Create();
 	virtual RR_RESULT Destroy();
 	
-	virtual void Update(float a_fDeltaTime);
+	virtual SceneManager::STATE Update(float a_fDeltaTime);
 	virtual void Render();
+	virtual SceneManager::STATE Run(float a_fDeltaTime);
 };
 
 #endif

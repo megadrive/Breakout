@@ -3,12 +3,12 @@
 
 MenuScene::MenuScene()
 {
-
+	Create();
 }
 
 MenuScene::~MenuScene()
 {
-
+	Destroy();
 }
 
 /**
