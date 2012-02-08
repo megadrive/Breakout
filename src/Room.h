@@ -22,7 +22,7 @@ public:
 
 	RR_RESULT AddObject( Object* a_pObject );
 
-        RR_RESULT RemoveAllObjects();
+	RR_RESULT RemoveAllObjects( bool a_bDestroy );
 	
 protected:
 	ObjectVector m_objects;
