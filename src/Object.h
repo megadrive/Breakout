@@ -5,11 +5,14 @@
 /**
  * Object
  * @brief	Used as a basis of all things in each room. All objects should derive off this.
- *			Doesn't have a constructor because it's meant to be derived from.
+ *				Doesn't have a constructor because it's meant to be derived from.
  */
+
+#include "Util.h"
 
 class Object
 {
+public:
 	enum TYPE
 	{
 		TYPE_UNASSIGNED = 0,
@@ -19,6 +22,12 @@ class Object
 	};
 
 	virtual ~Object();
+
+	virtual RR_RESULT Create();
+	virtual RR_RESULT Destroy();
+
+protected:
+	
 };
 
 #endif
