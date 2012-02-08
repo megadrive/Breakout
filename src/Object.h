@@ -26,6 +26,8 @@ public:
 	virtual RR_RESULT Create();
 	virtual RR_RESULT Destroy();
 
+        virtual RR_RESULT RemoveFromRoom();
+
 protected:
 	
 };
