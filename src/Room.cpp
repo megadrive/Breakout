@@ -22,3 +22,12 @@ RR_RESULT Room::AddObject(Object* a_pObject)
 	return RR_RESULT_OK;
 }
 
+/**
+ * RemoveAllObjects
+ * @brief Remove all objects from the room.
+ */
+RR_RESULT Room::RemoveAllObjects()
+{
+        return RR_RESULT_OK;
+}
+

@@ -21,6 +21,8 @@ public:
 	~Room();
 
 	RR_RESULT AddObject( Object* a_pObject );
+
+        RR_RESULT RemoveAllObjects();
 	
 protected:
 	ObjectVector m_objects;
