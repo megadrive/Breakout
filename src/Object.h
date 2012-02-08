@@ -16,9 +16,12 @@ public:
 	enum TYPE
 	{
 		TYPE_UNASSIGNED = 0,
+		TYPE_STATIC,
 		TYPE_PLAYERCONTROLLED,
 		TYPE_ENEMY,
-		TYPE_TRIGGER
+		TYPE_TRIGGER,
+
+		TYPE_COUNT
 	};
 
 	virtual ~Object();
