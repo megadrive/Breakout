@@ -17,6 +17,9 @@ ipch
 *.log #these should be generated via own configs anyway
 *.pdb
 
+# kdevelop ignore
+*.*~
+
 # below were taken from http://html5boilerplate.com/
 # https://github.com/h5bp/html5-boilerplate
 
