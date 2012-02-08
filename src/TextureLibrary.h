@@ -7,7 +7,12 @@
  * @brief	Singleton. Handles loading and unloading of textures.
  */
 
-#include <vector>
+#include <map>
+#include <string>
+
+#include "Util.h"
+
+typedef std::map<std::string, int> TextureMap;
 
 class TextureLibrary
 {
@@ -15,11 +20,17 @@ public:
 	~TextureLibrary();
 
 	static TextureLibrary* GetInstance();
+	RR_RESULT Destroy();
+
+	int AddTexture(std::string a_pathToTexture);
+
+	RR_RESULT DestroyAllTextures();
 
 private:
 	TextureLibrary();
 
 	static TextureLibrary* m_pInstance;
+	TextureMap m_textures;
 };
 
 #endif
