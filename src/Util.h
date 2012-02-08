@@ -4,7 +4,9 @@
 
 /**
  * Utility functions.
- */ 
+ */
+
+#include <cstdio>
 
 /**
  * Defines
@@ -23,13 +25,22 @@
 
 enum RR_RESULT
 {
-	RR_RESULT_OK = 0,
-	RR_RESULT_WARNING,
-	RR_RESULT_ERROR,
-	RR_RESULT_ERROR_MINOR,
-	RR_RESULT_ERROR_MAJOR,
+	RR_RESULT_OK			= 0,
+	RR_RESULT_WARNING		= -1,
+	RR_RESULT_ERROR			= -2,
+	RR_RESULT_ERROR_MINOR	= -3,
+	RR_RESULT_ERROR_MAJOR	= -4,
+	RR_RESULT_FATAL			= -5,
 
 	RR_RESULT_COUNT
 };
+
+/**
+ * LOG
+ * @brief Logs a message to the console.
+ */
+#ifndef LOG
+#	define LOG(str) printf("%s", str);
+#endif
 
 #endif
