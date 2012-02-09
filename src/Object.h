@@ -13,6 +13,9 @@
 class Object
 {
 public:
+        /**
+         * Defines the TYPE of the Object.
+         */
 	enum TYPE
 	{
 		TYPE_UNASSIGNED = 0,

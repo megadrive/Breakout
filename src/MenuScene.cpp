@@ -12,8 +12,7 @@ MenuScene::~MenuScene()
 }
 
 /**
- * Create
- * @brief Fires when an object is created. Initialise object-specific variables in here.
+ * Fires when an object is created. Initialise object-specific variables in here.
  */
 RR_RESULT MenuScene::Create()
 {
@@ -21,8 +20,7 @@ RR_RESULT MenuScene::Create()
 }
 
 /**
- * Destroy
- * @brief Fires when an object is destroyed. Uninitialise anything you did in Create.
+ * Fires when an object is destroyed. Uninitialise anything you did in Create.
  */
 RR_RESULT MenuScene::Destroy()
 {
@@ -30,9 +28,7 @@ RR_RESULT MenuScene::Destroy()
 }
 
 /**
- * Update
- * @brief	Updates this object based on the Delta time.
- * @param	float	a_fDeltaTime
+ * Updates this object based on the Delta time.
  */
 void MenuScene::Update( float a_fDeltaTime )
 {
@@ -40,8 +36,7 @@ void MenuScene::Update( float a_fDeltaTime )
 }
 
 /**
- * Render
- * @brief Renders this object to the buffer.
+ * Renders this object to the buffer.
  * TODO: Add deferred rendering by adding each object to a queue.
  * TODO: Possibly define this in Object then only override if the Object requires a custom Render.
  */

@@ -5,17 +5,11 @@
 #include "SceneManager.h"
 #include "TextureLibrary.h"
 
-/**
- * 
- */
 RRGame::RRGame()
 {
 	Create();
 }
 
-/**
- * 
- */
 RRGame::~RRGame()
 {
 	Destroy();
@@ -34,7 +28,8 @@ void RRGame::Create()
 }
 
 /**
- * 
+ * Destroys all initialised objects.
+ * Typically anything created in Create() should be destroyed here.
  */
 void RRGame::Destroy()
 {
@@ -45,14 +40,19 @@ void RRGame::Destroy()
 }
 
 /**
- * Run
  * The main game loop.
  */
 RR_RESULT RRGame::Run()
 {
+        int i = 0;
 	while( SceneManager::GetInstance()->m_scenes.size() )
 	{
-		if( SceneManager::GetInstance()->RunBackScene(0.0f) )
+                // TODO: Temporary stuff.
+                if( i < 10 )
+                {
+                        printf("Game is running.\n");
+                        ++i;
+                }
 	}
 
 	return RR_RESULT_OK;

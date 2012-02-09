@@ -15,7 +15,7 @@ SceneManager::~SceneManager()
 }
 
 /**
- *
+ * Gets the instance of the SceneManager. If it doesn't exist, create it.
  */
 /* static */ SceneManager* SceneManager::GetInstance()
 {
@@ -28,7 +28,9 @@ SceneManager::~SceneManager()
 }
 
 /**
- *
+ * Destroys the instance of SceneManager if it exists.
+ * Also destroys any still-loaded Scenes.
+ * @return RR_RESULT_OK if successful, RR_RESULT_ERROR otherwise.
  */
 
 RR_RESULT SceneManager::Destroy()
@@ -42,6 +44,8 @@ RR_RESULT SceneManager::Destroy()
 			for(; iterScene != m_scenes.end(); ++iterScene)
 			{
 				Scene* pScene = *iterScene;
+                                if( pScene->Destroy() == RR_RESULT_ERROR )
+                                        break;
 				delete pScene;
 			}
 
@@ -55,7 +59,8 @@ RR_RESULT SceneManager::Destroy()
 }
 
 /**
- *
+ * Adds a Scene to the SceneManager if non-NULL.
+ * @return RR_RESULT_OK if successful, RR_RESULT_WARNING otherwise.
  */
 
 RR_RESULT SceneManager::AddScene( Scene* a_pScene )
@@ -66,24 +71,29 @@ RR_RESULT SceneManager::AddScene( Scene* a_pScene )
 		return RR_RESULT_OK;
 	}
 
-	return RR_RESULT_ERROR;
+	return RR_RESULT_WARNING;
 }
 
 /**
- *
+ * Destroys all scenes.
  */
 
 RR_RESULT SceneManager::DestroyAllScenes()
 {
+        int iNumScenes = m_scenes.size();
+
 	SceneVector::iterator interScene = m_scenes.begin();
 	for(int i = 0; interScene != m_scenes.end(); ++interScene, ++i)
 	{
 		Scene* pScene = *interScene;
+                if( pScene->Destroy() == RR_RESULT_ERROR )
+                        break;
 		delete pScene;
 		*interScene = NULL;
 	}
 
-	m_scenes.clear();
+        if( iNumScenes == i )
+        	m_scenes.clear();
 
 	if( m_scenes.size() == 0 )
 	{
@@ -94,8 +104,7 @@ RR_RESULT SceneManager::DestroyAllScenes()
 }
 
 /**
- * RunBackScene
- * @brief Runs the Scene on the back of the vector.
+ * Runs the Scene on the back of the vector.
  */
 RR_RESULT SceneManager::RunBackScene( float a_fDeltaTime )
 {

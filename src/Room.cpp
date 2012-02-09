@@ -13,10 +13,8 @@ Room::~Room()
 }
 
 /**
- * AddObject
- * @brief Add an object for updating and rendering.
- *				To remove objects, call RemoveAllObjects or call RemoveFromRoom on the Object itself.
- * @param	Object a_pObject
+ * Add an object for updating and rendering.
+ * To remove objects, call RemoveAllObjects or call RemoveFromRoom on the Object itself.
  */
 RR_RESULT Room::AddObject(Object* a_pObject)
 {
@@ -26,12 +24,12 @@ RR_RESULT Room::AddObject(Object* a_pObject)
 		return RR_RESULT_OK;
 	}
 
+        LOG("Could not add object to Room. %s");
 	return RR_RESULT_ERROR;
 }
 
 /**
- * RemoveAllObjects
- * @brief Remove all objects from the room.
+ * Remove all objects from the room.
  */
 RR_RESULT Room::RemoveAllObjects( bool a_bDestroy = false )
 {
