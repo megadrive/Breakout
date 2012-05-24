@@ -1,0 +1,3 @@
+**BreakoutJS** was a proof-of-concept for a presentation I did on HTML5 and the <canvas> tag for playing games online as an alternative to Flash. The game isn't perfect and since I'm fairly sure there's no real way to have a proper game loop using <code>while()</code> or <code>for()</code>. I instead opted to use <code>setInterval()</code>, which at times seems to stutter.
+
+Could have researched bits and pieces of the code a bit better, though I was very pressed for time since I had other projects I needed to give attention to. This game was completed in around a week on an off, I'd say 6 hours all up, including familiarising myself with jQuery.Tappy and Javascript in general.
